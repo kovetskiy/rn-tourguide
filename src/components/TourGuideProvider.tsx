@@ -1,6 +1,6 @@
 import mitt from 'mitt'
 import * as React from 'react'
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, View, ViewStyle, TextStyle } from 'react-native'
 import { TourGuideContext, ITourGuideContext } from '../components/TourGuideContext'
 import { IStep, Labels, StepObject, Steps } from '../types'
 import * as utils from '../utilities'
@@ -19,6 +19,7 @@ const MAX_START_TRIES = 120
 export interface TourGuideProviderProps {
   tooltipComponent?: React.ComponentType<TooltipProps>
   tooltipStyle?: StyleProp<ViewStyle>
+  tooltipTextStyle?: StyleProp<TextStyle>
   labels?: Labels
   androidStatusBarVisible?: boolean
   startAtMount?: boolean
@@ -166,6 +167,7 @@ export class TourGuideProvider extends React.Component<TourGuideProviderProps, T
       labels,
       tooltipComponent,
       tooltipStyle,
+      tooltipTextStyle,
       androidStatusBarVisible,
       backdropColor,
       animationDuration,
@@ -205,6 +207,7 @@ export class TourGuideProvider extends React.Component<TourGuideProviderProps, T
               labels,
               tooltipComponent,
               tooltipStyle,
+              tooltipTextStyle,
               androidStatusBarVisible,
               backdropColor,
               animationDuration,

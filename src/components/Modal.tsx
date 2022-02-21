@@ -9,6 +9,7 @@ import {
   StyleSheet,
   View,
   ViewStyle,
+  TextStyle,
 } from 'react-native'
 import { BorderRadiusObject, IStep, Labels, ValueXY } from '../types'
 import styles, { MARGIN } from './style'
@@ -26,6 +27,7 @@ export interface ModalProps {
   animationDuration?: number
   tooltipComponent: React.ComponentType<TooltipProps>
   tooltipStyle?: StyleProp<ViewStyle>
+  tooltipTextStyle?: StyleProp<TextStyle>
   maskOffset?: number
   borderRadius?: number
   borderRadiusObject?: BorderRadiusObject
@@ -296,6 +298,7 @@ export class Modal extends React.Component<ModalProps, State> {
           isFirstStep={this.props.isFirstStep}
           isLastStep={this.props.isLastStep}
           currentStep={this.props.currentStep!}
+          textStyle={this.props.tooltipTextStyle}
           handleNext={this.handleNext}
           handlePrev={this.handlePrev}
           handleStop={this.handleStop}

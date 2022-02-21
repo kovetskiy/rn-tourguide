@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, TextStyle, StyleProp } from 'react-native'
 
 import { Button } from './Button'
 import styles from './style'
@@ -10,6 +10,7 @@ export interface TooltipProps {
   isLastStep?: boolean
   currentStep: IStep
   labels?: Labels
+  textStyle?: StyleProp<TextStyle>;
   handleNext?(): void
   handlePrev?(): void
   handleStop?(): void
@@ -22,6 +23,7 @@ export const Tooltip = ({
   handlePrev,
   handleStop,
   currentStep,
+  textStyle,
   labels,
 }: TooltipProps) => (
   <View
@@ -36,7 +38,7 @@ export const Tooltip = ({
     }}
   >
     <View style={styles.tooltipContainer}>
-      <Text testID='stepDescription' style={styles.tooltipText}>
+      <Text testID='stepDescription' style={[styles.tooltipText, textStyle]}>
         {currentStep && currentStep.text}
       </Text>
     </View>
